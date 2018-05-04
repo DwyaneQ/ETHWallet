@@ -4,7 +4,7 @@
     
     主要应用web3j、bitcoinj开发库
     
-    ![image](https://github.com/DywaneQ/ETHWallet/blob/master/img/Screenshot_2018-05-04-19-28-50-432_com.gongchuang.ethtoken.png)
+    ![image](https://github.com/DywaneQ/ETHWallet/blob/master/img/Screenshot_2018-05-04-19-28-50-432_com.gongchuang.ethtoken.png?raw=true)
     
     
     
