@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+
+
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.zxing:android-core:3.2.1'
+    compile 'com.google.zxing:core:3.3.0'
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'zxing-support'
+
+    publishedGroupId = 'com.github.hnlbxb2004'
+    libraryName = 'zxingsupport'
+    artifact = 'aar'
+
+    libraryDescription = 'Zxing 的一个扩展库，使用起来很方便，而且扫码速度也很快.'
+
+    siteUrl = 'https://github.com/hnlbxb2004/ZxingSupport'
+    gitUrl = 'https://github.com/hnlbxb2004/ZxingSupport.git'
+
+    libraryVersion = '0.7'
+
+    developerId = 'hnlbxb2004'
+    developerName = 'xubing'
+    developerEmail = 'hnlbxb2004@163.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
+apply from: "bintrayUpload.gradle"
