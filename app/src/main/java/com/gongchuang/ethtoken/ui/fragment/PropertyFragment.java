@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -77,6 +78,8 @@ public class PropertyFragment extends BaseFragment implements View.OnClickListen
 
     private int bannerHeight = 300;
     private View mIv;
+    @BindView(R.id.swipeRefresh)
+    SwipeRefreshLayout swipeRefresh;
 
     private static final int QRCODE_SCANNER_REQUEST = 1100;
     private static final int CREATE_WALLET_REQUEST = 1101;
@@ -222,7 +225,12 @@ public class PropertyFragment extends BaseFragment implements View.OnClickListen
         addHeaderView();
         initTinklingLayoutListener();
         drawer.setScrimColor(getContext().getResources().getColor(R.color.property_drawer_scrim_bg_color));
-
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefresh.setRefreshing(false);
+            }
+        });
     }
 
     @OnClick({R.id.lly_menu, R.id.lly_qrcode_scanner, R.id.lly_create_wallet})

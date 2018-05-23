@@ -35,15 +35,15 @@ public class PropertyDetailPresenter implements PropertyDetailContract.Presenter
 //                if (personalUnlockAccount.accountUnlocked()) {
 //                    // send a transaction
                 Transaction transaction = Transaction.createContractTransaction(fromAddress, null, BigInteger.ZERO, null);
-
+                // 创建自定义gasPrice、gasLimit的Transaction
+                //    Transaction etherTransaction = Transaction.createEtherTransaction(fromAddress, null, gasPrice, gasLimit, toAddress, ethValue);
                 EthSendTransaction
                         transactionResponse = web3j.ethSendTransaction(transaction)
                         .send();
-
+                // 交易Hash值
                 String transactionHash = transactionResponse.getTransactionHash();
 //                }
 //                e.onNext();
-                //TODO 查询当前钱包余额，币种
 //                e.onComplete();
             }
         }).subscribeOn(Schedulers.io())
