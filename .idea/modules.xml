@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ETHToken.iml" filepath="$PROJECT_DIR$/ETHToken.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ETHWallet.iml" filepath="$PROJECT_DIR$/ETHWallet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/zxingsupport/zxingsupport.iml" filepath="$PROJECT_DIR$/zxingsupport/zxingsupport.iml" />
     </modules>

@@ -13,6 +13,7 @@ import com.gongchuang.ethtoken.domain.VerifyMnemonicWordTag;
 import com.gongchuang.ethtoken.ui.adapter.VerifyBackupMnemonicWordsAdapter;
 import com.gongchuang.ethtoken.ui.adapter.VerifyBackupSelectedMnemonicWordsAdapter;
 import com.gongchuang.ethtoken.utils.AppUtils;
+import com.gongchuang.ethtoken.utils.LogUtils;
 import com.gongchuang.ethtoken.utils.ToastUtils;
 import com.gongchuang.ethtoken.utils.WalletDaoUtils;
 import com.google.android.flexbox.AlignItems;
@@ -121,6 +122,7 @@ public class VerifyMnemonicBackupActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_confirm:
+                LogUtils.d("VerifyMnemonicBackUp", "Click!!");
                 List<String> data = verifyBackupSelectedMnemonicWordsAdapter.getData();
                 int size = data.size();
                 if (size == 12) {
@@ -133,12 +135,15 @@ public class VerifyMnemonicBackupActivity extends BaseActivity {
                     }
                     String verifyMnemonic = stringBuilder.toString();
                     String trim = verifyMnemonic.trim();
+                    LogUtils.d("VerifyMnemonicBackUp", "Click!!");
                     if (TextUtils.equals(trim, walletMnemonic)) {
                         // TODO 修改该钱包备份标识
                         WalletDaoUtils.setIsBackup(walletId);
 //                        AppManager.getAppManager().finishActivity(MnemonicBackupActivity.class);
                         setResult(VERIFY_SUCCESS_RESULT, new Intent());
                         finish();
+                    } else {
+                        ToastUtils.showToast(R.string.verify_backup_failed);
                     }
                 } else {
                     ToastUtils.showToast(R.string.verify_backup_failed);

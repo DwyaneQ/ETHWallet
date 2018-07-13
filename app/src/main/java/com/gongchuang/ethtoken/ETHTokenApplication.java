@@ -18,6 +18,7 @@ package com.gongchuang.ethtoken;
 import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.multidex.MultiDexApplication;
 
 import com.gongchuang.ethtoken.domain.DaoMaster;
 import com.gongchuang.ethtoken.domain.DaoSession;
@@ -32,7 +33,7 @@ import com.squareup.leakcanary.RefWatcher;
  * @author yuyh.
  * @date 2016/8/3.
  */
-public class ETHTokenApplication extends Application {
+public class ETHTokenApplication extends MultiDexApplication {
 
     private static ETHTokenApplication sInstance;
 
